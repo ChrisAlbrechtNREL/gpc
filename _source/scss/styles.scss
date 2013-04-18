@@ -1,0 +1,98 @@
+@import 'base';
+
+body {
+  font-size: 16px;
+  background-color: rgba(164, 194, 207, .5);
+  font-family: $sans-serif;
+}
+
+@include headers(1rem, golden);
+
+.content-boundary {
+  max-width: 1000px;
+  padding: 2em 0;
+}
+
+header#site-header {
+  padding: 2em 0;
+  @include linear-gradient(top, $dark-blue, $light-blue);
+  color: white;
+
+  h1#title {
+    margin-bottom: .25em;
+  }
+
+  h2 {
+    font-family: $serif;
+    font-weight: normal;
+  }
+
+  .col {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .col1 {
+    margin-right: -4px;
+    width: 80%;
+  }
+  .col2 {
+    width: 20%;
+    vertical-align: bottom;
+    text-align: center;
+  }
+
+  a.gh-link {
+    @include big-button(link);
+
+    i.icon {
+      font-size: 3em;
+      display: inline-block;
+      margin-right: .25em;
+    }
+    span.text {
+      display: inline-block;
+    }
+  }
+}
+
+section#main {
+  color: $dark-blue;
+
+  .col {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #content {
+    width: 62%;
+    margin-right: -4px;
+  }
+
+  #releases {
+    width: 38%;
+
+    a.release {
+      @include big-button(link);
+      display: block;
+      line-height: 1.4em;
+      box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
+      margin: 1em 0;
+
+      i.icon {
+        font-size: 3em;
+        display: inline-block;
+        margin-right: .25em;
+        vertical-align: middle;
+      }
+      span.text {
+        vertical-align: middle;
+        display: inline-block;
+      }
+
+      h3.download {
+        margin-bottom: .25em;
+      }
+    }
+  }
+}
