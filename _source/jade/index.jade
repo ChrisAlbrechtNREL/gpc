@@ -1,8 +1,8 @@
 //- Master index file for all project pages.
 
 mixin release(proj, tag)
-  a.release(href='#{gh_url}/archive/#{tag}.tar.gz')
-    i.icon.icon-download.icon-large
+  a.release(href='#{proj_url}/archive/#{tag}.tar.gz')
+    i.icon.icon-download-alt.icon-large
     span.text
       h3.download Download
       h4.version #{proj}-#{tag}
@@ -16,7 +16,7 @@ html
       meta(content='IE=edge', http-equiv='X-UA-Compatible')
     block css
       link(type='text/css', rel='stylesheet', href='css/reset.css')
-      link(type='text/css', rel='stylesheet', href='//nreldev.nrel.gov/includes/fontawesome/css/font-awesome.min.css')
+      link(type='text/css', rel='stylesheet', href='css/font-awesome.min.css')
       link(type='text/css', rel='stylesheet', href='css/styles.css')
     block js
   body
@@ -28,20 +28,34 @@ html
             h2#tagline= site_description
 
           .col.col2
-            a.gh-link(href='#{gh_url}')
+            a.gh-link(href='#{proj_url}')
               i.icon.icon-github.icon-large
               span.text
                 | View on
                 span.bold GitHub
 
-      section#main.content-boundary
-        #content.col
-          block content
+      section#main
+        .content-boundary
+          #content.col
+            block content
 
-        #releases.col
-          block releases
-            - each tag in tags
-              mixin release(proj_name, tag)
+          #releases.col
+            block releases
+              - each tag in tags
+                mixin release(proj_name, tag)
 
       footer#site-footer
-        block footer
+        .content-boundary
+          block footer
+            .col.col1
+              p Maintained by <a href="mailto:chris.albrecht@nrel.gov">Chris Albrecht</a>
+              p NREL Communications Department
+
+            .col.col2
+
+            .col.col3
+              ul.menu
+                li
+                  | <a href="#{proj_url}">Project Page</a>
+                li
+                  | <a href="#{proj_url}/issues">Issue Queue</a>

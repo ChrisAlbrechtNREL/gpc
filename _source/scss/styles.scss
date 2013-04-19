@@ -2,11 +2,17 @@
 
 body {
   font-size: 16px;
-  background-color: rgba(164, 194, 207, .5);
+  background-color: white;
   font-family: $sans-serif;
 }
 
 @include headers(1rem, golden);
+
+h1, h2, h3, h4, h5, h6 {
+  .icon {
+    padding-right: .5em;
+  }
+}
 
 .content-boundary {
   max-width: 1000px;
@@ -33,7 +39,7 @@ header#site-header {
   }
 
   .col1 {
-    margin-right: -4px;
+    margin-right: -5px;
     width: 80%;
   }
   .col2 {
@@ -58,6 +64,28 @@ header#site-header {
 
 section#main {
   color: $dark-blue;
+  line-height: 1.3em;
+  background-color: rgba(164, 194, 207, .5);
+
+  a {
+    color: $dark-green;
+    text-decoration: none;
+    @include transition(color 0.5s);
+
+    &:visited {color: $dark-green;}
+    &:hover, &:active {color: $light-green;}
+  }
+
+  p, ol, ul {
+    margin: 0 0 1em 0;
+  }
+
+  ol, ul {
+    padding-left: 2em;
+  }
+
+  ol li {list-style: decimal;}
+  ul li {list-style: circle;}
 
   .col {
     display: inline-block;
@@ -66,7 +94,7 @@ section#main {
 
   #content {
     width: 62%;
-    margin-right: -4px;
+    margin-right: -5px;
   }
 
   #releases {
@@ -77,7 +105,7 @@ section#main {
       display: block;
       line-height: 1.4em;
       box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
-      margin: 1em 0;
+      margin: 0 0 2em 0;
 
       i.icon {
         font-size: 3em;
@@ -93,6 +121,52 @@ section#main {
       h3.download {
         margin-bottom: .25em;
       }
+    }
+  }
+}
+
+footer#site-footer {
+  font-size: 0.85em;
+  line-height: 1.4em;
+  color: #999;
+
+  a {
+    color: $dark-blue;
+    text-decoration: none;
+    @include transition(color 0.5s);
+
+    &:visited {color: $dark-blue;}
+    &:hover, &:active {color: $dark-green;}
+  }
+
+  .col {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+  }
+
+  .col1, col2 {
+    margin-right: -5px;
+  }
+
+  .col1 {text-align: left;}
+  .col2 {text-align: center;}
+  .col3 {text-align: right;}
+}
+
+ul.menu {
+  li {
+    display: inline-block;
+    margin-right: -4px;
+
+    a {
+      padding: 0 1em;
+      border-right: 1px solid #ccc;
+    }
+
+    &:last-child a {
+      padding-right: 0;
+      border-right: none;
     }
   }
 }
