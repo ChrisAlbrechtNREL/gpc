@@ -11,6 +11,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   .icon {
     padding-right: .5em;
+    color: white;
   }
 }
 
@@ -62,7 +63,7 @@ header#site-header {
   }
 }
 
-section#main {
+article#main {
   color: $dark-blue;
   line-height: 1.3em;
   background-color: rgba(164, 194, 207, .5);
@@ -82,10 +83,18 @@ section#main {
 
   ol, ul {
     padding-left: 2em;
+
+    li {
+      padding: .25em 0;
+    }
   }
 
   ol li {list-style: decimal;}
   ul li {list-style: circle;}
+
+  h3 {
+    @include text-shadow(1,1,1,rgba(0,0,0,0.3));
+  }
 
   .col {
     display: inline-block;
@@ -95,10 +104,18 @@ section#main {
   #content {
     width: 62%;
     margin-right: -5px;
+
+    section {
+      margin-bottom: 3em;
+    }
   }
 
   #releases {
     width: 38%;
+
+    .inner {
+      padding-left: 2em;
+    }
 
     a.release {
       @include big-button(link);

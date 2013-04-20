@@ -1,0 +1,28 @@
+mixin release(proj, tag)
+  a.release(href='#{proj_url}/archive/#{tag.version}.tar.gz')
+    i.icon.icon-download-alt.icon-large
+    span.text
+      h3.download #{tag.name}
+      h4.version #{proj}-#{tag.version}
+
+mixin header(type)
+  h3
+    case type
+      when 'dependencies'
+        i.icon.icon-exchange
+        | Dependencies
+      when 'installation'
+        i.icon.icon-wrench
+        | Installation
+      when 'usage'
+        i.icon.icon-cogs
+        | Usage
+      when 'resources'
+        i.icon.icon-info-sign
+        | Resources
+      when 'troubleshooting'
+        i.icon.icon-ambulance
+        | Troubleshooting
+      when 'contacts'
+        i.icon.icon-envelope
+        | Contacts

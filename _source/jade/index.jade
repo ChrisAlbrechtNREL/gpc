@@ -1,11 +1,6 @@
 //- Master index file for all project pages.
 
-mixin release(proj, tag)
-  a.release(href='#{proj_url}/archive/#{tag}.tar.gz')
-    i.icon.icon-download-alt.icon-large
-    span.text
-      h3.download Download
-      h4.version #{proj}-#{tag}
+include ./mixins.jade
 
 doctype 5
 html
@@ -34,15 +29,28 @@ html
                 | View on
                 span.bold GitHub
 
-      section#main
+      article#main
         .content-boundary
           #content.col
             block content
 
+            block dependencies
+
+            block installation
+
+            block usage
+
+            block resources
+
+            block troubleshooting
+
+            block contacts
+
           #releases.col
-            block releases
-              - each tag in tags
-                mixin release(proj_name, tag)
+            .inner
+              block releases
+                - each tag in tags
+                  mixin release(proj_name, tag)
 
       footer#site-footer
         .content-boundary
